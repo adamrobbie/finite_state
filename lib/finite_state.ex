@@ -1,0 +1,2 @@
+defmodule FiniteState do
+end
