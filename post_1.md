@@ -6,7 +6,7 @@ I've learned that instead of implementing a finite state machine in its own proc
 
 ### Definition
 
-For all those that fell asleep during that one particular lecture in Comp Sci II where the professor discussed Finite State Machines becuase they stayed up the previous night playing Counter Strike; a finite state machine an abstract model of computation. Every Turing Machine includes a FSM. Basically, a FSM is a set of states with interactions between those states, called transitions. For those that likes lists, a FSM is:
+For all those that fell asleep during that one particular lecture in Comp Sci II where the professor discussed Finite State Machines because they stayed up the previous night playing Counter Strike: a finite state machine an abstract model of computation. Every Turing Machine includes a FSM. Basically, an FSM is a set of states with interactions between those states, called transitions. For those that like lists, an FSM is:
 
 * A bunch of functions, or things that need to get done.
 * A bunch of events, or reasons to call these functions.
@@ -17,17 +17,18 @@ Armed with this brief introduction, lets do some coding.
 
 ### Enter the code
 
-We're going to be using [FSM](https://github.com/sasa1977/fsm)
-From the authors exact words:
+We're going to be using [FSM](https://github.com/sasa1977/fsm).
+
+From the author's exact words:
 Unlike `gen_fsm`, the `Fsm` data structure has following benefits:
 
 * It is immutable and side-effect free
 * No need to create and manage separate processes
 * You can persist it, use it via ets, embed it inside `gen_server` or plain processes
 
-Because I like beer, we're going to model a simple process of drinking from a beer glass. In its inital state, our FSM (a glass) will be empty. It will have 2 states, empty and full. The transtions will be fill the glass and drink the beer. In further posts I will taking this simple FSM and adding more complexity.
+Because I like beer, we're going to model a simple process of drinking from a beer glass. In its initial state, our FSM (a glass) will be empty. It will have 2 states, empty and full. The transitions will be fill the glass and drink the beer. In further posts I will taking this simple FSM and adding more complexity.
 
-Lets test drive our inital state.
+Lets test drive our initial state.
 
 ```elixir
 defmodule GlassTest do
@@ -81,6 +82,6 @@ Lets define some states with the accompanying transitions.
 
 Running `mix test`, we should have all green tests. Now, if at any time, you can query to state (as we see in the tests) of our FSM be calling the state attribute on the internal record of our FSM. *Sass1977* has implemented a pure functional data structure here that won't mutate or leak state and we can even store it in an ETS table. Every FSM in this context has the concept of "data" attached to it along with its state. Every transition returns a new record of state with this data, a new fsm instance.
 
-### Its closing time, you don't have to go home but you can read here
+### It's closing time, you don't have to go home but you can't read here
 
 I highly recommend heading over the *Sass1977* github repos and checkout his other work and play with FSM more. It is capable of so much more beyond our simple example. In Part 2 of our series of **Finite State Machines in Elixir** we'll be tackling `gen_fsm`.
