@@ -25,6 +25,7 @@ defmodule FiniteState.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:fsm, "~> 0.2.0"}]
+    [{:fsm, "~> 0.2.0"},
+     {:exactor, "~> 2.1.0"}]
   end
 end
